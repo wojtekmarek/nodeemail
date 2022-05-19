@@ -6,8 +6,12 @@ const port =8000;
 
 const app = express();
 app.use(cors());
-
 app.get('/', (req, res) => {
+
+  
+  res.status(200).send( 'hey server email is fine');
+});
+app.get('/mail', (req, res) => {
 
     const {email, category} = req.query;
     sendEmailNotification();
@@ -46,7 +50,7 @@ const sendEmailNotification = () => {
      });
    }
 
-   NODE_TLS_REJECT_UNAUTHORIZED='0'
+
    
 app.listen(port, () => {
   console.log('Example app listening on port 8000!')
